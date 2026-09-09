@@ -1,0 +1,251 @@
+/* ============================================================
+   Portfolio Card
+   Concept: one physical reference card (like a library index
+   card or a spec sheet), not a multi-section landing page.
+   ============================================================ */
+
+:root {
+  --desk: #DBDFD9;
+  --paper: #F8F7F2;
+  --ink: #1D2430;
+  --ink-muted: #4E5860;
+  --rule: #CCD1C7;
+  --blue: #2A4373;
+  --red: #A13A2C;
+
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", monospace;
+  --font-sans: "IBM Plex Sans", system-ui, -apple-system, sans-serif;
+
+  --max-w: 640px;
+}
+
+[data-theme="dark"] {
+  --desk: #0F1216;
+  --paper: #1B1F26;
+  --ink: #ECEEEA;
+  --ink-muted: #99A2AC;
+  --rule: #333A44;
+  --blue: #82A2DE;
+  --red: #D4826E;
+}
+
+/* ---------- Reset ---------- */
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+h1, h2, h3, p, dl, dd, ul { margin: 0; }
+
+body {
+  font-family: var(--font-sans);
+  color: var(--ink);
+  background: var(--desk);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* ---------- Layout: card on a desk ---------- */
+.desk {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 48px 20px;
+}
+
+.card {
+  width: 100%;
+  max-width: var(--max-w);
+  background: var(--paper);
+  border-left: 4px solid var(--red);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  padding: 40px 44px 32px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .card { animation: settle 0.5s ease both; }
+}
+@keyframes settle {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- Top bar ---------- */
+.card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 28px;
+}
+
+.mark {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 0.85rem;
+  border: 1.5px solid var(--ink);
+  padding: 5px 9px;
+  transform: rotate(-2deg);
+}
+
+.theme-toggle {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  background: none;
+  border: 1px solid var(--rule);
+  color: var(--ink-muted);
+  padding: 6px 12px;
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+.theme-toggle:hover { border-color: var(--blue); color: var(--blue); }
+
+/* ---------- Identity ---------- */
+h1 {
+  font-family: var(--font-mono);
+  font-size: clamp(1.7rem, 5vw, 2.2rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+  margin-bottom: 4px;
+}
+
+.role {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  color: var(--ink-muted);
+  margin-bottom: 18px;
+}
+
+.bio {
+  max-width: 62ch;
+  line-height: 1.65;
+  margin-bottom: 22px;
+}
+
+.links-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+}
+.links-row a {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--blue);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+.links-row a:hover,
+.links-row a:focus-visible { border-bottom-color: var(--blue); }
+
+/* ---------- Rules & section headings ---------- */
+.rule {
+  border: none;
+  border-top: 1px solid var(--rule);
+  margin: 32px 0;
+}
+
+h2 {
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 18px;
+}
+
+/* ---------- Field rows (skills / contact) ---------- */
+.field-row {
+  display: grid;
+  grid-template-columns: 170px 1fr;
+  gap: 4px 12px;
+  padding: 7px 0;
+  border-top: 1px solid var(--rule);
+}
+.field-row:first-child { border-top: none; }
+.field-row dt {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--ink-muted);
+}
+
+/* ---------- Projects ---------- */
+.project { margin-bottom: 22px; }
+.project:last-child { margin-bottom: 0; }
+.project h3 {
+  font-family: var(--font-mono);
+  font-size: 1.02rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.project p {
+  line-height: 1.6;
+  max-width: 62ch;
+  margin-bottom: 10px;
+}
+
+/* ---------- Contact form ---------- */
+.contact-form {
+  margin-top: 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 420px;
+}
+.form-row { display: flex; flex-direction: column; gap: 6px; }
+.form-row label {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--ink-muted);
+}
+.form-row input,
+.form-row textarea {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  color: var(--ink);
+  background: var(--desk);
+  border: 1px solid var(--ink-muted);
+  padding: 9px 10px;
+  resize: vertical;
+}
+.form-row input:focus-visible,
+.form-row textarea:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 1px;
+}
+
+.contact-form button {
+  align-self: flex-start;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--paper);
+  background: var(--blue);
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+.contact-form button:hover { background: var(--red); }
+
+.form-status {
+  font-size: 0.85rem;
+  min-height: 18px;
+}
+.form-status[data-state="success"] { color: var(--blue); }
+.form-status[data-state="error"] { color: var(--red); }
+
+/* ---------- Footer ---------- */
+.card-footer p {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--ink-muted);
+}
+
+/* ---------- Focus visibility (kept consistent site-wide) ---------- */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 560px) {
+  .desk { padding: 0; }
+  .card { max-width: 100%; padding: 32px 22px 26px; box-shadow: none; }
+  .field-row { grid-template-columns: 1fr; gap: 2px; padding: 10px 0; }
+}

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Abdulsalam Abubakar Abolaji, Web Development Intern</title>
+<meta name="description" content="Personal portfolio card for Abdulsalam Abubakar Abolaji, a web development intern, showing skills, projects and contact details." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="desk">
+  <main class="card" id="card">
+
+    <div class="card-top">
+      <span class="mark">AA</span>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-pressed="false">Dark mode</button>
+    </div>
+
+    <!-- Replace with your own name, role and bio -->
+    <section class="identity">
+      <h1>Abdulsalam Abubakar Abolaji</h1>
+      <p class="role">Web Development Intern</p>
+      <p class="bio">I'm partway through a 30-day web development internship, building something small with HTML, CSS and JavaScript every day and sharing it as I go. This card is today's project.</p>
+
+      <div class="links-row">
+        <a href="https://github.com/yourusername" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://x.com/yourusername" target="_blank" rel="noopener">X / Twitter</a>
+        <a href="mailto:[email protected]">Email</a>
+        <a href="#" download>Resume (PDF)</a>
+      </div>
+    </section>
+
+    <hr class="rule" />
+
+    <!-- Replace with your own skills -->
+    <section class="field-block">
+      <h2>Skills</h2>
+      <dl class="fields">
+        <div class="field-row"><dt>Languages</dt><dd>HTML5, CSS3, JavaScript, Python</dd></div>
+        <div class="field-row"><dt>Frameworks</dt><dd>React</dd></div>
+      </dl>
+    </section>
+
+    <hr class="rule" />
+
+    <!-- Replace with your own projects -->
+    <section class="field-block">
+      <h2>Projects</h2>
+
+      <article class="project">
+        <h3>Weather Lookup</h3>
+        <p>A small tool that looks up live conditions for any city and shows them on a simple card. Written in vanilla JavaScript to practice working with a public API and handling loading and error states.</p>
+        <div class="links-row">
+          <a href="#" target="_blank" rel="noopener">Live demo</a>
+          <a href="#" target="_blank" rel="noopener">Source</a>
+        </div>
+      </article>
+
+      <article class="project">
+        <h3>Task Tracker</h3>
+        <p>A to-do list that saves tasks to the browser's local storage, so the list is still there after a refresh. Built to practice DOM manipulation and basic state handling.</p>
+        <div class="links-row">
+          <a href="#" target="_blank" rel="noopener">Live demo</a>
+          <a href="#" target="_blank" rel="noopener">Source</a>
+        </div>
+      </article>
+
+      <article class="project">
+        <h3>Recipe Landing Page</h3>
+        <p>A single responsive landing page for a fictional recipe blog. Built to practice CSS Grid and Flexbox layout without any JavaScript.</p>
+        <div class="links-row">
+          <a href="#" target="_blank" rel="noopener">Live demo</a>
+          <a href="#" target="_blank" rel="noopener">Source</a>
+        </div>
+      </article>
+    </section>
+
+    <hr class="rule" />
+
+    <!-- Replace with your own contact details -->
+    <section class="field-block">
+      <h2>Contact</h2>
+      <dl class="fields">
+        <div class="field-row"><dt>Email</dt><dd>[email protected]</dd></div>
+        <div class="field-row"><dt>Location</dt><dd>Bengaluru, India</dd></div>
+        <div class="field-row"><dt>GitHub</dt><dd>github.com/yourusername</dd></div>
+      </dl>
+
+      <form class="contact-form" id="contactForm" novalidate>
+        <div class="form-row">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required />
+        </div>
+        <div class="form-row">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+        <div class="form-row">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="4" required></textarea>
+        </div>
+        <button type="submit">Send message</button>
+        <p class="form-status" id="formStatus" role="status"></p>
+      </form>
+    </section>
+
+    <hr class="rule" />
+
+    <footer class="card-footer">
+      <p>Card 1 of 30 in a SpireX Foundation web development internship.</p>
+    </footer>
+
+  </main>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
